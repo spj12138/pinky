@@ -1,0 +1,7 @@
+node_modules
+dist
+
+.*
+# .*是忽略所有帶點開頭的文件, ! 是和.* 相反的
+!.babelrc
+!.gitignore
