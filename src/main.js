@@ -3,16 +3,20 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import ElementUI from "element-ui";
 import 'element-ui/lib/theme-chalk/index.css';
+import Normalize from 'normalize';
+
 
 //啟動vue插件
 
 Vue.use(VueRouter);
 Vue.use(ElementUI);
+Vue.use(Normalize);
 
 //導入自己寫的東西
 import App from './component/App.vue';
 import Register from "./component/register/Register.vue";
 import Login from "./component/login/Login.vue";
+
 
 //導入路由器
 import routerConfig from './router/index.js';
