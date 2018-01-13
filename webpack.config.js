@@ -71,9 +71,10 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'template.html',
-      title: "hello vue"
+      template: './src/index.html', // 要处理的html
+      filename: 'index.html', // 处理后的html名称
+      inject: 'body',
+      title: 'Shopping Mall'
     })
   ]
 }
