@@ -3,14 +3,17 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 import ElementUI from "element-ui";
 import 'element-ui/lib/theme-chalk/index.css';
+
+//導入初始化默認樣式
 import 'normalize.css';
+//自己寫的全局樣式
+import './less/index.css';
 
 
 //啟動vue插件
-
 Vue.use(VueRouter);
 Vue.use(ElementUI);
-Vue.use(Normalize);
+// Vue.use(normalize);
 
 //導入自己寫的東西
 import App from './component/App.vue';

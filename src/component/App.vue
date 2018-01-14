@@ -1,8 +1,6 @@
 <template>
   <div> 
     
-
-
     <router-view></router-view>
    
   </div>
@@ -16,9 +14,9 @@
 </script>
 
 
-<style>
-  /* div {
-    color: rgb(0, 255, 42);
-    font-size: 40PX;
-  } */
+<style scoped>
+  div {
+    height: 100%;
+    background-color: rgb(38, 124, 183);
+  }
 </style>
