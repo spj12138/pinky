@@ -25,7 +25,7 @@ import Login from "./component/login/Login.vue";
 import routerConfig from './router/index.js';
 //導入axios
 import axios from 'axios';
-axios.defaults.baseURL = 'http://157.122.54.189:9095'; // 一配置, 以后所有的请求就会自动使用这个域名 
+axios.defaults.baseURL = 'http://localhost:1234'; // 一配置, 以后所有的请求就会自动使用这个域名 
 Vue.prototype.$http = axios;
 //導入api文件
 import api from "./js/api-config.js";

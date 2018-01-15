@@ -2,20 +2,20 @@
       
      <el-dropdown class="header">
          <span class="el-dropdown-link">
-            <span>hello{{uname}}</span>
+            <span>hello &nbsp;/ &nbsp;{{uname}}</span>
             <i class="el-icon-arrow-down el-icon-right"></i>
          </span>
           
          <el-dropdown-menu slot="dropdown">
-              <el-dropdown-item>modif</el-dropdown-item>
-              <el-dropdown-item>logout</el-dropdown-item>
+              <el-dropdown-item>註銷</el-dropdown-item>
+              <el-dropdown-item>改密</el-dropdown-item>
          </el-dropdown-menu>
 
      </el-dropdown>
       
 </template>
 
-<script>f
+<script>
   export default{
      data() {
           return {
