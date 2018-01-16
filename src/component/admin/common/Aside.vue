@@ -1,9 +1,9 @@
 <template>
-
+  
   <div class="box">
-      <el-menu default-active="2" class="el-menu-vertical-demo el-aside" >
+      <el-menu default-active="2" class="el-menu-vertical-demo el-aside " >
         <h3>斯,斯,斯內克</h3>
-        <el-submenu index="1">
+        <el-submenu index="1" >
           <template slot="title">
             <i class="el-icon-location"></i>
             <span>导航一</span>
@@ -16,7 +16,7 @@
         </el-submenu>
 
 
-        <el-submenu index="2">
+        <el-submenu index="2" >
           <template slot="title">
             <i class="el-icon-loading"></i>
             <span>导航二</span>
@@ -59,11 +59,19 @@
 
 <style scoped>
   .box{
+    /* width: 201px; */
+    background-color: #D3DCE6;
     height: 100%;
    
   }
+
+  .el-aside{
+    background-color: #D3DCE6;
+  }
   h3 {
     line-height: 80px;
-    font-size: 30px;
+    font-size: 28px;
+    text-align: center;
   }
+ 
 </style>

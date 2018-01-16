@@ -1,7 +1,7 @@
 <template>
   <el-container class="admin">
       <!-- 右側 -->
-    <el-aside width="200px">
+    <el-aside width="202px">
         <Aside> </Aside>
     </el-aside>
 
@@ -51,6 +51,7 @@
     color: #333;
     /* text-align: center; */
     line-height: 200px;
+    /* height: 100%; */
   }
 
   .el-main {
