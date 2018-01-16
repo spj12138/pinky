@@ -21,10 +21,13 @@ import Register from "./component/register/Register.vue";
 import Login from "./component/login/Login.vue";
 
 
+
 //導入路由器
 import routerConfig from './router/index.js';
+import beforeEach from "./router/beforeEach.js";
 //導入axios
 import axios from 'axios';
+axios.defaults.withCredentials=true;
 axios.defaults.baseURL = 'http://localhost:8899'; // 一配置, 以后所有的请求就会自动使用这个域名 
 Vue.prototype.$http = axios;
 //導入api文件

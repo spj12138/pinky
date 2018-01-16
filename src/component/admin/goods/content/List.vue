@@ -11,10 +11,10 @@
     <div>
       <el-button plain icon="el-icon-success">全選</el-button>
       <el-button plain icon="el-icon-circle-plus">增加</el-button>
-      <el-button plain icon="el-icon-delete">刪除</el-button>
+      <el-button plain icon="el-icon-delete" @click="daleteGit">刪除</el-button>
       <el-input style="width: 200px; float: right;" size="mini" placeholder="请输入内容" prefix-icon="el-icon-search" @blur="getGoodsList"></el-input>
     </div>
-    <el-table ref="multipleTable" :data="tableData3" tooltip-effect="dark" style="width: 100%" class="tables">
+<el-table ref="multipleTable" :data="tableData3" tooltip-effect="dark" style="width: 100%" class="tables" @selection-change="selectionChange">
       <!-- 所属类别 -->
       <!-- 没有type类型就是普通类型, 普通类型可以通过label设置表头 -->
       <!-- 普通类型还可以通过prop属性指定当前列展示的数据字段, 比template方便 -->
@@ -24,7 +24,7 @@
       </el-table-column>
 
       <el-table-column label="標題">
-        <template slot-scope="scope">{{ scope.row.title }}</template>
+        <template slot-scope="scope"><a href="#">{{ scope.row.title }}</a></template>
       </el-table-column>
 
       <el-table-column prop="categoryname" label="所屬類別" width="130"></el-table-column>
@@ -89,20 +89,21 @@
 
         page: {
           pageSizes: [10, 20, 30, 50],
-          tatal: 20
-        }
+          total: 20
+        },
+        selection:[],
       }
     },
     methods: {
       // 获取商品列表数据
       getGoodsList() {
-       console.log('123');
+      //  console.log('123');
         this.$http.get(this.$api.gsList, {
        
           params: this.gsListQuery, 
         })
         .then(res => {
-              console.log(res);
+              // console.log(res);
           this.tableData3 = res.data.message;
             this.page.total = res.data.totalcount;
         });
@@ -118,7 +119,46 @@
         this.gsListQuery.pageIndex = pageIndex;
         this.getGoodsList();
       },
+
+ //刪除按鈕
+       daleteGit() {
+        this.$confirm('此操作将永久删除该文件, 是否继续?', '提示', {
+          confirmButtonText: '确定',
+          cancelButtonText: '取消',
+          type: 'warning'
+        }).then( () => {
+          this.del();
+        }).catch(() => {
+          this.$message({
+            type: 'info',
+            message: '已取消删除'
+          });
+        });
+      },
+
+  del(){
+    let ids=this.selection.map(v =>v.id).join(",");
+
+    this.$http.get(this.$api.gsDel+ids).then( res =>{
+      if (res.data.status==0) {
+           this.getGoodsList();
+            this.selection = [];
+          this.$message({
+              type: 'success',
+              message: '删除成功!'
+         });
+      }
+    })
+  },
+
+   selectionChange(selection) {
+        this.selection = selection;
+        console.log(this.selection);
+      }
+
     },
+
+
     // 组件初始化,进行渲染
     created() {
       this.getGoodsList();

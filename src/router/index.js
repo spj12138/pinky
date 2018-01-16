@@ -11,6 +11,7 @@
 
 //admin頁面的子路由
 let adminChildren = [
+  { path: '/', redirect: '/admin/goods/content/list' },
   { name: 'goodsCtList', path: 'goods/content/list', component: GoodsCtList },
   { name: 'goodsCtEdit', path: 'goods/content/edit/:id', component: GoodsCtEdit },
   { name: 'goodsCtAdd', path: 'goods/content/add', component: GoodsCtEdit },
